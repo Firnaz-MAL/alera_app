@@ -38,7 +38,7 @@ final ThemeData aleraTheme = ThemeData(
   ),
 
   // 📦 Card: lembut & bersih
-  cardTheme: CardTheme(
+  cardTheme: CardThemeData(
     color: Colors.white,
     elevation: 3,
     margin: const EdgeInsets.all(8),
