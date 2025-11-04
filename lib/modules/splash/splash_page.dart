@@ -1,28 +1,13 @@
 import 'dart:async';
+import 'package:alera_app/modules/splash/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/constants.dart';
 import '../dashboard/dashboard_page.dart';
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class SplashPage extends StatefulWidget {
-  const SplashPage({super.key});
-
-  @override
-  State<SplashPage> createState() => _SplashPageState();
-}
-
-class _SplashPageState extends State<SplashPage> {
-  @override
-  void initState() {
-    super.initState();
-
-    // Simulasi delay (misal buat cek login nanti)
-    Timer(const Duration(seconds: 3), () {
-      // Get.off(() => const DashboardPage(),
-      //     transition: Transition.fadeIn, duration: const Duration(milliseconds: 600));
-    });
-  }
-
+class SplashPage extends GetView<SplashController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
