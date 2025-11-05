@@ -1,13 +1,13 @@
-import 'dart:async';
-import 'package:alera_app/modules/splash/splash_controller.dart';
+
+import 'package:alera_app/modules/splash(firnaz)/splash_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../utils/constants.dart';
-import '../dashboard/dashboard_page.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import '../dashboard(firnaz)/dashboard_page.dart';
 
 class SplashPage extends GetView<SplashController> {
+  const SplashPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

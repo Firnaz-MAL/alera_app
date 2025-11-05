@@ -1,14 +1,15 @@
+import 'package:alera_app/routes/app_pages.dart';
+import 'package:alera_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'utils/theme.dart';
-import 'modules/splash/splash_page.dart';
 
 void main() {
-  runApp(const AleraApp());
+  runApp(const MyApp());
 }
 
-class AleraApp extends StatelessWidget {
-  const AleraApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +17,7 @@ class AleraApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Alera',
       theme: aleraTheme,
-      home: const SplashPage(),
+      getPages: AppRoutes.getRoutes(),
     );
   }
 }
