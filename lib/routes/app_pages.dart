@@ -3,6 +3,7 @@ class AppPages {
               login = '/login',
               register = '/register',
               dashboard = '/dashboard',
+              appointments = '/appointments',
               doctors = '/doctors',
               medicalRecords = '/medicalRecords',
               medicines = '/medicines',

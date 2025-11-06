@@ -68,13 +68,13 @@ class DashboardPage extends StatelessWidget {
                               fontFamily: 'Poppins',
                             ),
                           ),
-                          Text(
+                          Obx(() => Text(
                             "Selamat datang, ${controller.userName}",
                             style: TextStyle(
                               color: Colors.grey[600],
                               fontSize: 13,
                             ),
-                          ),
+                          )),
                         ],
                       ),
                     ],

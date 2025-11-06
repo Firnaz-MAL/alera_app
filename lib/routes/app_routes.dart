@@ -1,13 +1,24 @@
-import 'package:alera_app/modules/auth(ibrohim)/login_controller.dart';
-import 'package:alera_app/modules/auth(ibrohim)/login_page.dart';
-import 'package:alera_app/modules/dashboard(firnaz)/dashboard_page.dart';
-import 'package:alera_app/modules/splash(firnaz)/splash_controller.dart';
-import 'package:alera_app/modules/splash(firnaz)/splash_page.dart';
-import 'package:alera_app/routes/app_pages.dart';
 import 'package:get/get.dart';
 
+// Pages & Controllers
+import 'package:alera_app/modules/splash(firnaz)/splash_page.dart';
+import 'package:alera_app/modules/splash(firnaz)/splash_controller.dart';
+
+import 'package:alera_app/modules/auth(ibrohim)/login_page.dart';
+import 'package:alera_app/modules/auth(ibrohim)/login_controller.dart';
+
+import 'package:alera_app/modules/dashboard(firnaz)/dashboard_page.dart';
+import 'package:alera_app/modules/dashboard(firnaz)/dashboard_controller.dart';
+
+// Appointments
+import 'package:alera_app/modules/appointments/appointment_list_page.dart';
+import 'package:alera_app/modules/appointments/appointment_controller.dart';
+
+// Routes constants
+import 'package:alera_app/routes/app_pages.dart';
+
 class AppRoutes {
-  static getRoutes() => [
+  static List<GetPage<dynamic>> getRoutes() => [
         // SPLASH
         GetPage(
           name: AppPages.splash,
@@ -30,6 +41,28 @@ class AppRoutes {
         GetPage(
           name: AppPages.dashboard,
           page: () => const DashboardPage(),
+          binding: BindingsBuilder(() {
+            // bind DashboardController so DashboardPage can use Get.find()
+            Get.put(DashboardController());
+          }),
         ),
+
+        // APPOINTMENTS
+        GetPage(
+          name: AppPages.appointments,
+          page: () => AppointmentListPage(),
+          binding: BindingsBuilder(() {
+            Get.put(AppointmentController());
+          }),
+        ),
+
+        // Optional: define placeholders for other routes to avoid runtime missing-route errors.
+        // If you later add real pages, replace these with the real imports/pages.
+        // GetPage(name: AppPages.patients, page: () => PatientsPage()),
+        // GetPage(name: AppPages.doctors, page: () => DoctorsPage()),
+        // GetPage(name: AppPages.medicines, page: () => MedicinesPage()),
+        // GetPage(name: AppPages.medicalRecords, page: () => MedicalRecordsPage()),
+        // GetPage(name: AppPages.payments, page: () => PaymentsPage()),
+        // GetPage(name: AppPages.profile, page: () => ProfilePage()),
       ];
 }
