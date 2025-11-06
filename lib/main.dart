@@ -1,7 +1,7 @@
-import 'package:alera_app/routes/app_pages.dart';
-import 'package:alera_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:alera_app/routes/app_pages.dart';
+import 'package:alera_app/routes/app_routes.dart';
 import 'utils/theme.dart';
 
 void main() {
@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       title: 'Alera',
       theme: aleraTheme,
       getPages: AppRoutes.getRoutes(),
+      initialRoute: AppPages.splash, // ⬅️ mulai dari SplashPage
     );
   }
 }
