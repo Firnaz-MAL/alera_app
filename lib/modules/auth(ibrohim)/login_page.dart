@@ -78,7 +78,9 @@ class LoginPage extends GetView<LoginController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text("Don't have any Account?"),
-                  TextButton(onPressed: () {}, child: Text('Sign Up'))
+                  TextButton(onPressed: () {
+                    controller.navigateToRegisterForm();
+                  }, child: Text('Sign Up'))
                 ],
               )
             ],
@@ -119,29 +121,77 @@ class _PasswordFieldState extends State<PasswordField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 400,
-      child: TextField(
-        obscureText: _isObscure, // 🎯 inilah kuncinya
-        decoration: InputDecoration(
-          labelText: 'Password',
-          contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
-          prefixIcon: const Icon(Icons.lock_outline), // 🔒 icon di kiri
-          suffixIcon: IconButton(
-            icon: Icon(
-              _isObscure
-                  ? Icons.visibility_off
-                  : Icons.visibility, // 👁️ toggle
+    return Column(
+      children: [
+        SizedBox(
+          width: 400,
+          child: TextField(
+            obscureText: _isObscure, // 🎯 inilah kuncinya
+            decoration: InputDecoration(
+              labelText: 'Password',
+              contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              prefixIcon: const Icon(Icons.lock_outline), // 🔒 icon di kiri
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isObscure
+                      ? Icons.visibility_off
+                      : Icons.visibility, // 👁️ toggle
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure; // 🔄 ubah dari hide → show
+                  });
+                },
+              ),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
             ),
-            onPressed: () {
-              setState(() {
-                _isObscure = !_isObscure; // 🔄 ubah dari hide → show
-              });
-            },
           ),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
         ),
-      ),
+      ],
+    );
+  }
+}
+
+class ConfirPassword extends StatefulWidget {
+  const ConfirPassword({super.key});
+
+  @override
+  State<ConfirPassword> createState() => _ConfirPasswordState();
+}
+
+class _ConfirPasswordState extends State<ConfirPassword> {
+ bool _isObscure = true; 
+
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        SizedBox(
+          width: 400,
+          child: TextField(
+            obscureText: _isObscure, // 🎯 inilah kuncinya
+            decoration: InputDecoration(
+              labelText: 'Confirm Password',
+              contentPadding: EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+              prefixIcon: const Icon(Icons.lock_outline), // 🔒 icon di kiri
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _isObscure
+                      ? Icons.visibility_off
+                      : Icons.visibility, // 👁️ toggle
+                ),
+                onPressed: () {
+                  setState(() {
+                    _isObscure = !_isObscure; // 🔄 ubah dari hide → show
+                  });
+                },
+              ),
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
