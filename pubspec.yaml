@@ -15,6 +15,7 @@ dependencies:
   shared_preferences: ^2.0.15
   intl: ^0.19.0   # ✅ tambahkan ini untuk DateFormat, dll.
   cupertino_icons: ^1.0.8
+  font_awesome_flutter: ^10.12.0
 
 dev_dependencies:
   flutter_test:
